@@ -1,0 +1,14 @@
+<!-- editor/templates/editor/document_detail.html -->
+
+{% extends 'editor/base.html' %}
+{% load static %}  <!-- Add this line -->
+
+{% block content %}
+<h2>{{ document.title }}</h2>
+<div id="editor" contenteditable="true"></div>
+<script>
+    const user = "{{ request.user.username }}";
+    const documentId = "{{ document.pk }}";
+</script>
+<script src="{% static 'editor/editor.js' %}"></script>
+{% endblock %}
